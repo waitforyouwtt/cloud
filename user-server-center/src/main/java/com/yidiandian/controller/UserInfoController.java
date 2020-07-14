@@ -1,9 +1,13 @@
 package com.yidiandian.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.yidiandian.entity.UserInfo;
+import com.yidiandian.service.UserInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.awt.print.Book;
+import java.util.List;
 
 /**
  * @Author: luoxian
@@ -13,8 +17,21 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class UserInfoController {
 
+    @Autowired
+    UserInfoService userInfoService;
+
     @GetMapping("/getIp")
     public String getiP(HttpServletRequest request){
         return request.getRemotePort()+"";
+    }
+
+    @GetMapping(value = "/userInfos")
+    public List<UserInfo> getItems(){
+        return userInfoService.queryAllByLimit(0,1);
+    }
+
+    @PostMapping(value = "/userInfo")
+    public UserInfo saveItem(@RequestBody UserInfo userInfo){
+        return userInfoService.insert(userInfo);
     }
 }

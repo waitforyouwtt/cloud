@@ -1,10 +1,10 @@
 #数据库连接池
 spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/dev?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    username: root
-    password: root
+  #datasource:
+    #driver-class-name: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://127.0.0.1:3306/dev?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    #username: root
+    #password: root
 # 格式化日期
   jackson:
     time-zone: GMT+8
@@ -16,15 +16,15 @@ mybatis:
 
 #服务名称
   application:
-    name: seckillUserCenter
+    name: userServerCenter
 
 #服务端口
 server:
   port: 8762
 
 #注册中心地址[多个配置中心，中间用逗号分开]
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/ # ,http://127.0.0.1:8762/eureka/
+#eureka:
+  #client:
+    #service-url:
+      #defaultZone: http://127.0.0.1:8761/eureka/ # ,http://127.0.0.1:8762/eureka/
 
