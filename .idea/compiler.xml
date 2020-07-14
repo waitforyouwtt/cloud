@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cloud" />
         <module name="eureka-server-center" />
+        <module name="user-server-center" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="cloud" target="1.8" />
       <module name="eureka-server-center" target="1.8" />
+      <module name="user-server-center" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
