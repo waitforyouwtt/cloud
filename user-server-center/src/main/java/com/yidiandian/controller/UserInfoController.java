@@ -27,7 +27,7 @@ public class UserInfoController {
 
     @GetMapping(value = "/userInfos")
     public List<UserInfo> getItems(){
-        return userInfoService.queryAllByLimit(0,1);
+        return userInfoService.queryAllByLimit(0,10);
     }
 
     @PostMapping(value = "/userInfo")
