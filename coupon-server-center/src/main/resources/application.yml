@@ -5,10 +5,13 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/db0?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: root
+
 # 格式化日期
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
+  jpa:
+    show-sql: true
 
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
@@ -27,5 +30,14 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka/ # ,http://127.0.0.1:8762/eureka/
+
+elasticsearch:
+    nodes: 127.0.0.1:9200,192.168.1.X2:9200,192.168.1.X3:9200
+
+logging:
+  level:
+    com:
+      yidiandian:
+        dao: DEBUG
 
 
