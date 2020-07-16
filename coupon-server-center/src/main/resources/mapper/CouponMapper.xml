@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidiandian.dao.CouponDao">
+
+    <resultMap type="com.yidiandian.entity.Coupon" id="CouponMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="couponName" column="coupon_name" jdbcType="VARCHAR"/>
+        <result property="grantDate" column="grant_date" jdbcType="TIMESTAMP"/>
+        <result property="isUse" column="is_use" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="CouponMap">
+        select
+          id, user_id, coupon_name, grant_date, is_use
+        from db0.coupon
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="CouponMap">
+        select
+          id, user_id, coupon_name, grant_date, is_use
+        from db0.coupon
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="CouponMap">
+        select
+          id, user_id, coupon_name, grant_date, is_use
+        from db0.coupon
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="couponName != null and couponName != ''">
+                and coupon_name = #{couponName}
+            </if>
+            <if test="grantDate != null">
+                and grant_date = #{grantDate}
+            </if>
+            <if test="isUse != null">
+                and is_use = #{isUse}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into db0.coupon(user_id, coupon_name, grant_date, is_use)
+        values (#{userId}, #{couponName}, #{grantDate}, #{isUse})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update db0.coupon
+        <set>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="couponName != null and couponName != ''">
+                coupon_name = #{couponName},
+            </if>
+            <if test="grantDate != null">
+                grant_date = #{grantDate},
+            </if>
+            <if test="isUse != null">
+                is_use = #{isUse},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from db0.coupon where id = #{id}
+    </delete>
+
+</mapper>
