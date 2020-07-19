@@ -1,13 +1,14 @@
 package com.yidiandian.controller;
 
 import com.yidiandian.entity.UserInfo;
+import com.yidiandian.request.RequestPay;
 import com.yidiandian.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.awt.print.Book;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @Author: luoxian
@@ -33,5 +34,12 @@ public class UserInfoController {
     @PostMapping(value = "/userInfo")
     public UserInfo saveItem(@RequestBody UserInfo userInfo){
         return userInfoService.insert(userInfo);
+    }
+
+    @PostMapping(value = "/payOfCoupon")
+    public void payOfCoupon(@RequestBody RequestPay requestPay) {
+        String txNo = UUID.randomUUID().toString();
+        requestPay.setTxNo(txNo);
+        userInfoService.payOfCoupon(requestPay);
     }
 }

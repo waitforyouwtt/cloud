@@ -1,8 +1,14 @@
 package com.yidiandian.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yidiandian.entity.UserInfo;
 import com.yidiandian.dao.UserInfoDao;
+import com.yidiandian.request.RequestPay;
 import com.yidiandian.service.UserInfoService;
+import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,6 +24,9 @@ import java.util.List;
 public class UserInfoServiceImpl implements UserInfoService {
     @Resource
     private UserInfoDao userInfoDao;
+
+    @Autowired
+    RocketMQTemplate rocketMQTemplate;
 
     /**
      * 通过ID查询单条数据
@@ -75,5 +84,22 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public boolean deleteById(Integer id) {
         return this.userInfoDao.deleteById(id) > 0;
+    }
+
+    /**
+     * 使用优惠券支付
+     *
+     * @param requestPay
+     */
+    @Override
+    public void payOfCoupon(RequestPay requestPay) {
+        //将accountChangeEvent转成json
+        JSONObject jsonObject =new JSONObject();
+        jsonObject.put("requestPay",requestPay);
+        String jsonString = jsonObject.toJSONString();
+        //生成message类型
+        Message<String> message = MessageBuilder.withPayload(jsonString).build();
+        //发送一条事务消息
+        rocketMQTemplate.sendMessageInTransaction("pay_group_txmsg","pay_topic_txmsg",message,null);
     }
 }

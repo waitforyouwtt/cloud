@@ -6,7 +6,11 @@
 
     <groupId>com.yidiandian</groupId>
     <artifactId>cloud</artifactId>
+    <packaging>pom</packaging>
     <version>1.0</version>
+    <modules>
+        <module>commoncenter</module>
+    </modules>
 
     <properties>
         <spring.cloud.version>Finchley.RELEASE</spring.cloud.version>

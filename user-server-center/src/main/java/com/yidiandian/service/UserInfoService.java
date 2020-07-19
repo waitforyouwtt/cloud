@@ -1,6 +1,8 @@
 package com.yidiandian.service;
 
 import com.yidiandian.entity.UserInfo;
+import com.yidiandian.request.RequestPay;
+
 import java.util.List;
 
 /**
@@ -52,4 +54,9 @@ public interface UserInfoService {
      */
     boolean deleteById(Integer id);
 
+    /**
+     * 使用优惠券支付
+     * @param requestPay
+     */
+    void payOfCoupon(RequestPay requestPay);
 }
