@@ -42,4 +42,9 @@ public class UserInfoController {
         requestPay.setTxNo(txNo);
         userInfoService.payOfCoupon(requestPay);
     }
+
+    @GetMapping("/queryByUserId")
+    public void queryByUserId(@RequestParam("userId") String userId){
+        userInfoService.queryById(userId);
+    }
 }

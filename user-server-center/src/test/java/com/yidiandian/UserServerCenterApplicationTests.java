@@ -10,8 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class UserServerCenterApplicationTests {
 
 	@Test
-	public void contextLoads() {
-		System.out.println("nihao");
-	}
+	public void contextLoads() { }
 
 }

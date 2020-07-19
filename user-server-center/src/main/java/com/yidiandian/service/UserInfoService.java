@@ -16,10 +16,10 @@ public interface UserInfoService {
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param userId 主键
      * @return 实例对象
      */
-    UserInfo queryById(Integer id);
+    UserInfo queryById(String userId);
 
     /**
      * 查询多条数据
@@ -59,4 +59,10 @@ public interface UserInfoService {
      * @param requestPay
      */
     void payOfCoupon(RequestPay requestPay);
+
+    /**
+     * 根据ID查询用户名称
+     */
+
+    String findUserNameById(String userId);
 }

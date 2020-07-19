@@ -1,8 +1,11 @@
 package com.yidiandian.entity;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.io.Serializable;
@@ -15,11 +18,10 @@ import java.io.Serializable;
  */
 @EqualsAndHashCode
 @Accessors(chain = true)
-
 public class UserInfo implements Serializable {
     private static final long serialVersionUID = 975624080298299728L;
-    
-    private Integer id;
+
+    private String id;
     /**
     * 用户Id
     */
@@ -47,6 +49,7 @@ public class UserInfo implements Serializable {
     /**
     * 生日
     */
+    @JSONField(format = "yyyy-mm-dd hh:mm:ss")
     private Date birthday;
     /**
     * 邮箱
@@ -55,6 +58,7 @@ public class UserInfo implements Serializable {
     /**
     * 创建时间
     */
+    @JSONField(format = "yyyy-mm-dd hh:mm:ss")
     private Date createTime;
     /**
     * 删除标志
@@ -63,18 +67,20 @@ public class UserInfo implements Serializable {
     /**
     * 登陆时间
     */
+    @JSONField(format = "yyyy-mm-dd hh:mm:ss")
     private Date loginTime;
     /**
     * 修改时间
     */
+    @JSONField(format = "yyyy-mm-dd hh:mm:ss")
     private Date updateTime;
 
 
-    public Integer getId() {
-        return id;
+    public String getId() {
+        return id.toString();
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

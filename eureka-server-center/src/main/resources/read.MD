@@ -28,3 +28,8 @@ start mqnamesrv.cmd
 start mqbroker.cmd  autoCreateTopicEnable=true 
 启动rocketmq 控制台：cd D:\tools\rocket-console\rocketmq-externals\rocketmq-console\target
 java -jar rocketmq-console-ng-1.0.1.jar 
+
+redis 启动：
+
+解决方案：cmd-> cd C:\tools\redis-server    
+redis-server.exe redis.windows.conf
