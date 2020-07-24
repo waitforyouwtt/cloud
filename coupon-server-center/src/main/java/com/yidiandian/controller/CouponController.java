@@ -34,7 +34,7 @@ public class CouponController {
     }
 
     @PostMapping("/saveOrUpdateES")
-    public void saveOrUpdateES(){
+    public void saveOrUpdateES() throws InterruptedException {
         couponService.saveOrUpdateES();
     }
 

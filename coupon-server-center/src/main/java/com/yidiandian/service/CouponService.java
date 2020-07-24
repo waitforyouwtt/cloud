@@ -54,20 +54,11 @@ public interface CouponService {
     boolean deleteById(Integer id);
 
     /**
-     * 创建优惠券es索引库[不存在则创建，存在则修改]
-     */
-     void createIndex();
-
-    /**
-     * 保存或更新ES
-     */
-     void saveOrUpdateES();
-
-    /**
-     * 通过id 查询ES
-     * @param id
+     * 批量增加
+     * @param entityList
      * @return
      */
-    Coupon queryProjectESById(String id);
+    void batchInsert(List<Coupon> entityList);
+
 
 }

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/cloud.iml" filepath="$PROJECT_DIR$/cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commoncenter/commoncenter.iml" filepath="$PROJECT_DIR$/commoncenter/commoncenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/coupon-server-center/coupon-server-center.iml" filepath="$PROJECT_DIR$/coupon-server-center/coupon-server-center.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-server-center/eureka-server-center.iml" filepath="$PROJECT_DIR$/eureka-server-center/eureka-server-center.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-server-center/user-server-center.iml" filepath="$PROJECT_DIR$/user-server-center/user-server-center.iml" />

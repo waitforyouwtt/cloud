@@ -81,4 +81,14 @@
         delete from db0.coupon where id = #{id}
     </delete>
 
+
+    <insert id="batchInsert" parameterType="list">
+        insert into db0.coupon(`user_id`, `coupon_name`, `grant_date`, `is_use`)values
+        <foreach item= "vo" collection= "batchEntities" index = "index" separator = "," >
+            (
+              #{vo.userId},#{vo.couponName},#{vo.grantDate},#{vo.isUse}
+            )
+        </foreach>
+    </insert>
+
 </mapper>

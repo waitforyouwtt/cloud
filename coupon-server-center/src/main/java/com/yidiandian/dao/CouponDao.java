@@ -64,4 +64,5 @@ public interface CouponDao {
      */
     int deleteById(Integer id);
 
+    void batchInsert(@Param("batchEntities") List<Coupon> entityList);
 }

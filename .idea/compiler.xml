@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cloud" />
+        <module name="commoncenter" />
         <module name="coupon-server-center" />
         <module name="eureka-server-center" />
         <module name="user-server-center" />
@@ -14,6 +14,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="cloud" target="1.8" />
+      <module name="commoncenter" target="1.8" />
       <module name="coupon-server-center" target="1.8" />
       <module name="eureka-server-center" target="1.8" />
       <module name="user-server-center" target="1.8" />
